@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int gridSize = 1; // Tamaño del grid
+
+    public GameObject tilePrefab; // Prefab del tile
+
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        // Generar el grid y posicionar los tiles
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int y = 0; y < gridSize; y++)
+            {
+                GameObject tile = Instantiate(tilePrefab, transform);
+                tile.transform.position = new Vector3(x, 0f, y);
+            }
+        }
     }
 }
